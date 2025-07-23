@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panier Adaptatif</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+  </head>
+  <body class="p-3">
+    <h3 class="text-center">Ajouter un produit au panier</h3>
+
+    <form id="formulaire" class="mb-4" style="max-width: 900px; margin: auto">
+      <div class="row gy-3">
+        <!-- Description -->
+        <div class="col-12 col-md-6">
+          <input
+            type="text"
+            id="description"
+            class="form-control"
+            placeholder="Description du produit"
+            required
+          />
+        </div>
+
+        <!-- Catégorie -->
+        <div class="col-12 col-md-6">
+          <select id="categorie" class="form-select" required>
+            <option value="">Choisir une catégorie</option>
+            <option>Matériel</option>
+            <option>Accessoire</option>
+            <option>Logiciel</option>
+          </select>
+        </div>
+
+        <!-- État -->
+        <div class="col-12 col-md-6">
+          <div class="form-check">
+            <input type="checkbox" id="etat" class="form-check-input" />
+            <label for="etat" class="form-check-label">Neuf</label>
+          </div>
+        </div>
+
+        <!-- Bouton -->
+        <div class="col-12 col-md-6">
+          <button type="submit" class="btn btn-primary w-100">
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Tableau -->
+    <div class="table-responsive">
+      <table class="table table-bordered text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Catégorie</th>
+            <th>État</th>
+          </tr>
+        </thead>
+        <tbody id="tableau-produits"></tbody>
+      </table>
+    </div>
+
+    <!-- Script -->
+    <script>
+      let id = 1;
+      const form = document.getElementById("formulaire");
+      const tbody = document.getElementById("tableau-produits");
+
+      form.onsubmit = function (e) {
+        e.preventDefault();
+        const description = document.getElementById("description").value;
+        const categorie = document.getElementById("categorie").value;
+        const etat = document.getElementById("etat").checked ? "Neuf" : "Usagé";
+
+        const ligne = `
+          <tr>
+            <td>${id++}</td>
+            <td>${description}</td>
+            <td>${categorie}</td>
+            <td>${etat}</td>
+          </tr>`;
+        tbody.innerHTML += ligne;
+        form.reset();
+      };
+    </script>
+  </body>
+</html>
