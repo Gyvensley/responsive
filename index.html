@@ -3,47 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panier Adaptatif</title>
+    <title>Panier Adapte</title>
     <link rel="stylesheet" href="bootstrap.min.css" />
   </head>
   <body class="p-3">
-    <h3 class="text-center">Ajouter un produit au panier</h3>
+    <h3 class="text-center">Ajouter dans mon Panier</h3>
 
     <form id="formulaire" class="mb-4" style="max-width: 900px; margin: auto">
-      <div class="row gy-3">
+      <div class="row gy-2">
         <!-- Description -->
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-3">
           <input
             type="text"
             id="description"
-            class="form-control"
-            placeholder="Description du produit"
+            class="form-control form-control-sm"
+            placeholder="Description"
             required
           />
         </div>
 
         <!-- Catégorie -->
-        <div class="col-12 col-md-6">
-          <select id="categorie" class="form-select" required>
-            <option value="">Choisir une catégorie</option>
-            <option>Matériel</option>
+        <div class="col-12 col-md-3">
+          <select id="categorie" class="form-select form-select-sm" required>
+            <option value="">Catergorie</option>
+            <option>Materiel</option>
             <option>Accessoire</option>
             <option>Logiciel</option>
           </select>
         </div>
 
         <!-- État -->
-        <div class="col-12 col-md-6">
-          <div class="form-check">
+        <div class="col-12 col-md-2">
+          <div class="form-check pt-1">
             <input type="checkbox" id="etat" class="form-check-input" />
             <label for="etat" class="form-check-label">Neuf</label>
           </div>
         </div>
 
         <!-- Bouton -->
-        <div class="col-12 col-md-6">
-          <button type="submit" class="btn btn-primary w-100">
-            Ajouter au panier
+        <div class="col-12 col-md-4">
+          <button type="submit" class="btn btn-primary btn-sm w-100">
+            Ajouter dans le Panier
           </button>
         </div>
       </div>
@@ -56,8 +56,8 @@
           <tr>
             <th>ID</th>
             <th>Description</th>
-            <th>Catégorie</th>
-            <th>État</th>
+            <th>Categorie</th>
+            <th>etat</th>
           </tr>
         </thead>
         <tbody id="tableau-produits"></tbody>
